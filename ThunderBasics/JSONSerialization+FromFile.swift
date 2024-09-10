@@ -22,7 +22,7 @@ extension JSONSerialization {
 	///              For possible values, see JSONSerialization.ReadingOptions.
 	/// - Returns: A Foundation object from the JSON data in data, or nil if an error occurs.
 	/// - Throws: An error if the resource couldn't be found or if JSON serialisation failed.
-	open class func jsonObject(with resource: String?, extension fileExtension: String?, in bundle: Bundle = .main, options opt: JSONSerialization.ReadingOptions = []) throws -> Any {
+    public class func jsonObject(with resource: String?, extension fileExtension: String?, in bundle: Bundle = .main, options opt: JSONSerialization.ReadingOptions = []) throws -> Any {
 		
 		guard let path = bundle.url(forResource: resource, withExtension: fileExtension) else {
 			throw JSONSerializationError.fileNotFoundInBundle
@@ -46,7 +46,7 @@ extension JSONSerialization {
 	///              For possible values, see JSONSerialization.ReadingOptions.
 	/// - Returns: A Foundation object from the JSON data in data, or nil if an error occurs.
 	/// - Throws: An error if the file couldn't be read as Data or if JSON serialisation failed.
-	open class func jsonObject(with file: URL, options opt: JSONSerialization.ReadingOptions = []) throws -> Any {
+    public class func jsonObject(with file: URL, options opt: JSONSerialization.ReadingOptions = []) throws -> Any {
 		
 		do {
 			let data = try Data(contentsOf: file)
